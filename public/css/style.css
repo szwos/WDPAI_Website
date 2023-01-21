@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+container {
+    width: 100vw;
+    height: 100vh;
+
+    /* no bg for this page */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
