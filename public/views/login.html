@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type = "text/css" href = "../css/style.css">
-    <title>LOGIN PAGE</title>
+    <title>login - GameAlike.net</title>
 </head>
 
-<body>
-    <div class = "container">
-        <!--<div class = "logo">
 
-        </div>-->
-        
-        <div class = "login container">
+
+<body>
+    <header class="header">
+        <div class="page-name-box">
+            <h1>GameAlike.net</h1>
+        </div>
+    </header> 
+
+
+
+    <div class = "input-form-container">
             <form>
-                <input name = "email" type = "text" placeholder = "email@email.com"> 
-                <input name = "password" type = "password" placeholder="password">
-                <button>LOGIN</button>
+                <label for="email">Email:</label>
+                <input name = "email" class = "input-text-field" type = "text" placeholder = "email@email.com"> 
+                
+                <label for="password">Password:</label>
+                <input name = "password" class = "input-text-field" type = "password" placeholder="password">
+                <!--<button name = "login-button">LOGIN</button>-->
     
             </form>
-        </div>
 
     </div>
 </body>

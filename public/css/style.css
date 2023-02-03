@@ -1,15 +1,151 @@
-body {
-    margin: 0;
+.header {
+    display: flex;
+    justify-content: start;
+    border-bottom: 10px solid #00DBEB;
+    padding: 1%;
+
 }
 
-container {
-    width: 100vw;
-    height: 100vh;
+body {
+    margin: 0;
+    display: grid;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 
-    /* no bg for this page */
-    
+section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+}
+
+form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+}
+
+.rows {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+
+.recomendations>div {
+    border: 1px solid gray;
+    border-radius: 1em 1em 0 0;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-name-box {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    background: #0B8ED4;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    margin: auto;
+    margin-top: 20vh;
+    font-size: 1.2em;
+    width: 70%;
+
+    border-width: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #11D6A9;
+
+}
+
+
+.input-form-container {
+    width: 20vw;
+    height: fit-content;
+    margin: auto;
+    margin-top: 20vh;
+
+
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 10px;
+    background: #6FFAB0;
+    padding: 50px;
+}
+
+
+.button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    width: 90%;
+
+    border-radius: 5px;
+    background-color: #6FFAB0;
+}
+  
+.input-text-field {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    width: 90%;
+
+    border-width: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #11D6A9;
+}
+
+
+@media only screen and (max-device-width: 420px) {
+
+    * {
+        font-size: 36px;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    
+
+
+    .login-container {
+        width: 70%;
+        height: 30%;
+        margin: auto;
+        margin-top: 20vh;
+    
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        border-radius: 10px;
+        background: #6FFAB0;
+        padding: 50px;
+    }
+
+
+
 }
