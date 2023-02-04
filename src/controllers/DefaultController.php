@@ -4,13 +4,32 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController{
     public function index() {
-        //TODO display index.html
         $this->render('index');
 
     }
 
-    public function recomendation_form() {
-        //TODO display recomendation-form.html
-        $this->render('recomendation_form');
+    public function recommendation_form() {
+        $this->render('recommendation_form');
     }
+
+    public function login() {
+        $this->render("login", ['message'=>"Hello World"]);
+    }
+
+    public function recommendations() {
+        $this->render("recommendations");
+    }
+
+    public function registration() {
+        $this->render("registration");
+    }
+
+    public function dashboard() {
+        $this->render("dashboard");
+    }
+
+    public function creator() {
+        $this->render("creator");
+    }
+
 }

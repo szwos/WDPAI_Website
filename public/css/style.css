@@ -39,8 +39,28 @@ label {
     flex: 50%;
 }
 
+.creation-form {
 
-.recomendations>div {
+    width: 90vw;
+    height: 75vh;
+    margin: 5vh auto;
+
+    background-color: #11D6A9;
+    border-radius: 10px;
+}
+
+.creation-form>h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.creation-form>.rows>.column>textarea {
+    width: 85%;
+    height: 200%;
+    resize: none;
+}
+
+.recommendations>div {
     border: 1px solid gray;
     border-radius: 1em 1em 0 0;
     height: 20vh;

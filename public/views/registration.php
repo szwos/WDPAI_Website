@@ -16,13 +16,13 @@
         <div class = "column">
             <div class = "input-form-container">
                 <form>
-                    <label for="email">Email:</label>
+                    <label for id="email">Email:</label>
                     <input name = "email" class = "input-text-field" type = "text" placeholder = "email@email.com"> 
                     
-                    <label for="password">Password:</label>
+                    <label for id="password">Password:</label>
                     <input name = "password" class = "input-text-field" type = "password" placeholder="password">
 
-                    <label for="password-repeat">Repeat password</label>
+                    <label for id="password-repeat">Repeat password</label>
                     <input name = "password-repeat" class = "input-text-field" type = "text" placeholder = "password"> 
 
                 </form>

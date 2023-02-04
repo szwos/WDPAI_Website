@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type = "text/css" href = "public/css/style.css">
-    <title>recomendation - GameAlike.net</title>
+    <title>recommendation - GameAlike.net</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
             <div class = "input-form-container">
                 <form>
 
-                    <label for = "game-name">Quick recomendation</label>
+                    <label for id= "game-name">Quick recommendation</label>
                     <input name = "game name" class = "input-text-field" type = "text" placeholder = "game name">
 
                 </form>

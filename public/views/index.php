@@ -37,13 +37,13 @@
         </div>
         
         <div class = "column">
-            <div class = "button">
-                Create profile
-            </div>
+            <form action="registration">
+                <input type = "submit" class = "button" value = "Create profile">
+            </form>
 
-            <div class = "button">
-                Login
-            </div>
+            <form action="login">
+                <input type = "submit" class = "button" value = "Login">
+            </form>
 
             <div class = "button">
                 Quick recomendation
