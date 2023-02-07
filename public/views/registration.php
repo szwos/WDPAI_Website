@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type = "text/css" href = "public/css/style.css">
+    <script type = "text/javascript" src="./public/js/registrationScript.js" defer></script>
     <title>register - GameAlike.net</title>
 </head>
 
@@ -12,8 +13,7 @@
         </div>
     </header>
         
-    <div class = "rows">
-        <div class = "column">
+
             <div class = "input-form-container">
                 <form class = "registration" action="registration" method="POST">
 
@@ -45,11 +45,4 @@
 
                 </form>
             </div>
-        </div>
-        
-        <div class = "column">
-            javascript trait selection
-        </div>
-        
-    </div>
 </body>

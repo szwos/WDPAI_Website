@@ -8,7 +8,7 @@ class Router {
     public static $routes;
 
     public static function get($url, $view) {
-    self::$routes[$url] = $view;
+        self::$routes[$url] = $view;
     }
 
     public static function post($url, $view) {

@@ -19,9 +19,7 @@ class DefaultController extends AppController{
     }
 
 
-    public function dashboard() {
-        $this->render("dashboard");
-    }
+
 
     public function creator() {
         $this->render("creator");

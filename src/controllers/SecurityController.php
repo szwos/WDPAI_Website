@@ -7,7 +7,6 @@ require_once __DIR__ .'/../repository/UserRepository.php';
 class SecurityController extends AppController {
 
 
-
     public function login() {
 
         if(!$this->isPost()) {
@@ -35,10 +34,18 @@ class SecurityController extends AppController {
             return $this->render("login", ["messages" => ["Wrong password."]]);
         }
 
-        return $this->render("dashboard");
+        setcookie('id_user', $user->getEmail(), time() + (60 * 30), "/");
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/dashboard");
+
+ //       return $this->render("dashboard", ["values" => [1, 2, 3, 4, 5]]);
     }
 
     public function registration() {
+
+        //TODO enforce that form is complete
+
 
         if(!$this->isPost()) {
             return $this->render("registration");
@@ -54,6 +61,7 @@ class SecurityController extends AppController {
             return $this->render("registration", ["messages" => ["Passwords doesn't match!"]]);
         }
 
+        //TODO: change this into something like findIfUserExists()
         $user = $userRepository->getUser($email);
 
         if($user) {
@@ -67,4 +75,14 @@ class SecurityController extends AppController {
 
         return $this->render("login", ["messages"=>["You have been succesfully registered."]]);
     }
+
+    public function dashboard() {
+
+        if (!isset($_COOKIE['id_user'])) {
+            die("user not logged in");
+        }
+
+        return $this->render("dashboard");
+    }
+
 }

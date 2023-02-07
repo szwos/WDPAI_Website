@@ -113,6 +113,28 @@ label {
     padding: 50px;
 }
 
+.profile-form-container {
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 20vh;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: #11D6A9;
+
+}
+.profile-form-container>form>h1 {
+    font-size: small;
+}
+
+
 
 .button {
     padding: 10px;
@@ -134,6 +156,13 @@ label {
     border-radius: 5px;
     border-style: solid;
     border-color: #11D6A9;
+}
+
+.no-valid {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
 }
 
 
