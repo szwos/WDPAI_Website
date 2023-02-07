@@ -19,7 +19,7 @@ class SecurityController extends AppController {
         //$user = new User("jankowalski@gmail.com", "password", "Jan", "Kowalski");
         $userRepository = new UserRepository();
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = md5($_POST["password"]);
 
         $user = $userRepository->getUser($email);
 
@@ -36,5 +36,35 @@ class SecurityController extends AppController {
         }
 
         return $this->render("dashboard");
+    }
+
+    public function registration() {
+
+        if(!$this->isPost()) {
+            return $this->render("registration");
+        }
+
+
+        $userRepository = new UserRepository();
+        $password = $_POST["password"];
+        $password_repeat = $_POST["password-repeat"];
+        $email = $_POST["email"];
+
+        if($password !== $password_repeat) {
+            return $this->render("registration", ["messages" => ["Passwords doesn't match!"]]);
+        }
+
+        $user = $userRepository->getUser($email);
+
+        if($user) {
+            return $this->render("registration", ["messages"=>["This email address is allready taken!"]]);
+        }
+
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+
+        $userRepository->addUser($name, $surname, $email, md5($password));
+
+        return $this->render("login", ["messages"=>["You have been succesfully registered."]]);
     }
 }

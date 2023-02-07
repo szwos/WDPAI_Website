@@ -12,17 +12,12 @@ class DefaultController extends AppController{
         $this->render('recommendation_form');
     }
 
-    public function login() {
-        $this->render("login", ['message'=>"Hello World"]);
-    }
+
 
     public function recommendations() {
         $this->render("recommendations");
     }
 
-    public function registration() {
-        $this->render("registration");
-    }
 
     public function dashboard() {
         $this->render("dashboard");
