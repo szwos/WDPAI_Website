@@ -6,58 +6,32 @@
 
 
 <body>
-<header class = "header">
-    <div class =  "page-name-box">
-        <h1>GameAlike.net</h1>
-    </div>
-</header>
-
-<div class = "rows">
-    <div class = "column">
-
-        <form action="creator" method="POST">
-            <input type = "submit" class = "button" value = "Create recommendation">
-        </form>
-
-        <form action="recommendations">
-            <input type = "submit" class = "button" value = "Browse recommendations">
-        </form>
-
-    </div>
-
-    <div class = "column">
-        <div class = profile-form-container>
-            <form class = "profileRegistration" action="dashboard" method="POST">
-                <h1>Choose traits that determine what does it mean to You, that a game is similliar</h1>
-                <label for id="story">story</label>
-                <input name = "story" type="range" min="0" max="100" value="<?php if(isset($values)) {echo $values[0];} else {echo "0";} ?>" class="slider">
-
-                <label for id="gameplay">gameplay</label>
-                <input name = "gameplay" type="range" min="0" max="100" value="<?php if(isset($values)) {echo $values[1];} else {echo "0";} ?>" class="slider">
-
-                <label for id="graphics">graphics</label>
-                <input name = "graphics" type="range" min="0" max="100" value="<?php if(isset($values)) {echo $values[2];} else {echo "0";} ?>" class="slider">
-
-                <label for id="climate">climate</label>
-                <input name = "climate" type="range" min="0" max="100" value="<?php if(isset($values)) {echo $values[3];} else {echo "0";} ?>" class="slider">
-
-                <label for id="music">music</label>
-                <input name = "music" type="range" min="0" max="100" value="<?php if(isset($values)) {echo $values[4];} else {echo "0";} ?>" class="slider">
-
-                <button name = "confirm-button" class="button" type="submit">Confirm</button>
-
-                <div class = "messages">
-                    <?php if(isset($messages)) {
-                        foreach ($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
-                </div>
-
-            </form>
+    <header class = "header">
+        <div class =  "page-name-box">
+            <h1>GameAlike.net</h1>
         </div>
-    </div>
+    </header>
 
-</div>
+
+    <form action="creator" method="POST">
+        <input type = "submit" class = "button" value = "Create recommendation">
+    </form>
+
+    <div class = "recommendations-label">Browse recommendations:</div>
+        <section class = "recommendations">
+            <?php
+            require_once __DIR__."/../../src/models/Recommendation.php";
+            foreach ($recommendations as $recommendation) {
+                echo "<div id = ".$recommendation->getOwnerId().">";
+                echo "<img src  = 'public/uploads/".$recommendation->getImg()."'>";
+                echo "<div>";
+                echo "<h2>".$recommendation->getName()."</h2>";
+                echo "<p>".$recommendation->getDesc()."</p>";
+                echo "</div>";
+                echo "</div>";
+            }  ?>
+
+        </section>
+
+
 </body>

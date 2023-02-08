@@ -78,54 +78,55 @@ class SecurityController extends AppController {
         return $this->render("login", ["messages"=>["You have been succesfully registered."]]);
     }
 
-    public function dashboard() {
-
-        if (!isset($_COOKIE['id_user'])) {
-            die("user not logged in");
-        }
-
-        $userRepository = new UserRepository();
-        $profileRepository = new ProfileRepository();
-
-        $user = $userRepository->getUser($_COOKIE['id_user']);
-
-
-        if($this->isPost()) {
-
-            $values = new Profile(
-                $_POST["story"],
-                $_POST["gameplay"],
-                $_POST["graphics"],
-                $_POST["climate"],
-                $_POST["music"]
-            );
-
-            $profileRepository->upsertProfile($user, $values);
-
-            return $this->render("dashboard", [
-                "messages"=>["Profile has been updated."],
-                "values"=>[
-                    $values->getStory(),
-                    $values->getGameplay(),
-                    $values->getGraphics(),
-                    $values->getClimate(),
-                    $values->getMusic()
-                ]]);
-        }
-
-        $values = $profileRepository->getProfile($user);
-
-        if($values) {
-            return $this->render("dashboard", ["values"=>[
-                $values->getStory(),
-                $values->getGameplay(),
-                $values->getGraphics(),
-                $values->getClimate(),
-                $values->getMusic()
-            ]]);
-        }
-
-        return $this->render("dashboard");
-    }
+    //TODO: remove
+//    public function dashboard() {
+//
+//        if (!isset($_COOKIE['id_user'])) {
+//            die("user not logged in");
+//        }
+//
+//        $userRepository = new UserRepository();
+//        $profileRepository = new ProfileRepository();
+//
+//        $user = $userRepository->getUser($_COOKIE['id_user']);
+//
+//
+//        if($this->isPost()) {
+//
+//            $values = new Profile(
+//                $_POST["story"],
+//                $_POST["gameplay"],
+//                $_POST["graphics"],
+//                $_POST["climate"],
+//                $_POST["music"]
+//            );
+//
+//            $profileRepository->upsertProfile($user, $values);
+//
+//            return $this->render("dashboard", [
+//                "messages"=>["Profile has been updated."],
+//                "values"=>[
+//                    $values->getStory(),
+//                    $values->getGameplay(),
+//                    $values->getGraphics(),
+//                    $values->getClimate(),
+//                    $values->getMusic()
+//                ]]);
+//        }
+//
+//        $values = $profileRepository->getProfile($user);
+//
+//        if($values) {
+//            return $this->render("dashboard", ["values"=>[
+//                $values->getStory(),
+//                $values->getGameplay(),
+//                $values->getGraphics(),
+//                $values->getClimate(),
+//                $values->getMusic()
+//            ]]);
+//        }
+//
+//        return $this->render("dashboard");
+//    }
 
 }

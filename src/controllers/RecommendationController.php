@@ -63,9 +63,16 @@ class RecommendationController extends AppController {
     }
 
 
+    //TODO: remove
     public function recommendations() {
 
         $recommendations = $this->recommendationRepository->getRecommendations();
         $this->render("recommendations", ["recommendations"=>$recommendations]);
+    }
+
+    public function dashboard() {
+
+        $recommendations = $this->recommendationRepository->getRecommendations();
+        $this->render("dashboard", ["recommendations"=>$recommendations]);
     }
 }

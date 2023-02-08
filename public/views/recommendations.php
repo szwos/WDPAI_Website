@@ -15,6 +15,7 @@
     <div class = "recommendations-label">Browse recommendations:</div>
     <section class = "recommendations">
         <?php
+        if(isset($recommendations)) print_r("jest set"); else print_r("nie jest set");
         require_once __DIR__."/../../src/models/Recommendation.php";
         foreach ($recommendations as $recommendation){
             echo "<div id = ".$recommendation->getOwnerId().">";
