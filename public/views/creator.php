@@ -19,9 +19,9 @@
 
             <div class = "column">
 
-                <input name = "game_name" class = "input-text-field" type = "text" placeholder = "Game name">
+                <input name = "name" class = "input-text-field" type = "text" placeholder = "Game name">
 
-                <input type="file" name="file">
+                <input type="file" name="img">
                 <?php
                 if(isset($messages)) {
                     foreach ($messages as $message) {
@@ -34,7 +34,7 @@
             </div>
 
             <div class = "column">
-                <textarea>Game description
+                <textarea name = "desc">Game description
                 </textarea>
 
                 <input type = "submit" class = "button" value = "Continue">

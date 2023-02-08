@@ -19,8 +19,8 @@
             <input type = "submit" class = "button" value = "Create recommendation">
         </form>
 
-        <form action="recommendation_form">
-            <input type = "submit" class = "button" value = "Find game like">
+        <form action="recommendations">
+            <input type = "submit" class = "button" value = "Browse recommendations">
         </form>
 
     </div>

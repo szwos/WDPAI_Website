@@ -6,16 +6,18 @@ class Recommendation
     private $desc;
     private $img;
 
-    //TODO: some data type deciding on simliarity to other games
-    //TODO: up /\ maybe a dict, which key is UUID of other game from DB, and value is array of similiarity weights [music, gameplay...]
-    //TODO: up /\ e.g   {1:[1, 5, 8, 2, 4], 2:[4, 2, 7, 3, 5] ...}
+    private $owner_id;
 
 
-    public function __construct($name, $desc, $img)
+
+    //TODO: profile
+
+    public function __construct($name, $desc, $img, $owner_id)
     {
         $this->name = $name;
         $this->desc = $desc;
         $this->img = $img;
+        $this->owner_id = $owner_id;
     }
 
     public function getName() : string
@@ -47,6 +49,11 @@ class Recommendation
     public function setImg(string $img)
     {
         $this->img = $img;
+    }
+
+    public function getOwnerId()
+    {
+        return $this->owner_id;
     }
 
 

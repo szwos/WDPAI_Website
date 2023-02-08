@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type = "text/css" href = "public/css/style.css">
-    <title>recommendation - GameAlike.net</title>
+    <title>Recommendations - GameAlike.net</title>
 </head>
 
 
@@ -12,13 +12,20 @@
         </div>
     </header>
 
-    <div class = "recommendations-label">Your recommendations:</div>
+    <div class = "recommendations-label">Browse recommendations:</div>
     <section class = "recommendations">
-        <div>recommendation1</div>
-        <div>recommendation2</div>
-        <div>recommendation3</div>
-        <div>recommendation4</div>
-    
+        <?php
+        require_once __DIR__."/../../src/models/Recommendation.php";
+        foreach ($recommendations as $recommendation){
+            echo "<div id = ".$recommendation->getOwnerId().">";
+                echo "<img src  = 'public/uploads/".$recommendation->getImg()."'>";
+                    echo "<div>";
+                        echo "<h2>".$recommendation->getName()."</h2>";
+                        echo "<p>".$recommendation->getDesc()."</p>";
+                    echo "</div>";
+                echo "</div>";
+        }  ?>
+
     </section>
 
 

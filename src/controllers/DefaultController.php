@@ -14,11 +14,6 @@ class DefaultController extends AppController{
 
 
 
-    public function recommendations() {
-        $this->render("recommendations");
-    }
-
-
 
 
     public function creator() {

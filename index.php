@@ -12,7 +12,7 @@ Router::get('recommendation_form', 'DefaultController');
 //Router::get("login", "DefaultController");
 Router::post("login", "SecurityController");
 Router::post("registration", "SecurityController");
-Router::get("recommendations", "DefaultController");
+Router::post("recommendations", "RecommendationController");
 Router::post("dashboard", "SecurityController");
 Router::post("creator", "DefaultController");
 Router::post("addRecommendation", "RecommendationController");

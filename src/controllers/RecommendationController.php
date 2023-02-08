@@ -3,6 +3,8 @@
 
 require_once "AppController.php";
 require_once __DIR__ . "/../models/Recommendation.php";
+require_once __DIR__ . "/../repository/RecommendationRepository.php";
+require_once __DIR__ . "/../repository/UserRepository.php";
 class RecommendationController extends AppController {
 
     const MAX_FILE_SIZE = 1024*1024;
@@ -11,21 +13,34 @@ class RecommendationController extends AppController {
     private $messages = [];
 
     private $recommendationRepository;
+    private $userRepository;
+    public function __construct() {
+        parent::__construct();
+        $this->recommendationRepository = new RecommendationRepository();
+        $this->userRepository = new UserRepository();
+    }
+
     public function addRecommendation() {
 
-        if($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"])) {
+        if (!isset($_COOKIE['id_user'])) {
+            die("user not logged in");
+        }
+
+        if($this->isPost() && is_uploaded_file($_FILES["img"]["tmp_name"]) && $this->validate($_FILES["img"])) {
             move_uploaded_file(
-              $_FILES["file"]["tmp_name"],
-              dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES["file"]["name"]
+              $_FILES["img"]["tmp_name"],
+              dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES["img"]["name"]
             );
 
-            $recommendation = new Recommendation($_POST["name"], $_POST["desc"], $_FILES["file"]["name"]);
+            $user = $this->userRepository->getUser($_COOKIE['id_user']);
+
+            $owner = $user->getId();
+            $recommendation = new Recommendation($_POST["name"], $_POST["desc"], $_FILES["img"]["name"], $owner);
 
 
+            $this->recommendationRepository->addRecommendation($recommendation, $user);
 
-
-
-            return $this->render("dashboard", ["messages" => $this->messages, "game"=>$game]);
+            return $this->render("creator", ["messages" =>["recommendation added successfully!"]]);
         }
 
         $this->render("creator", ["messages" => $this->messages]);
@@ -45,5 +60,12 @@ class RecommendationController extends AppController {
         }
 
         return true;
+    }
+
+
+    public function recommendations() {
+
+        $recommendations = $this->recommendationRepository->getRecommendations();
+        $this->render("recommendations", ["recommendations"=>$recommendations]);
     }
 }
