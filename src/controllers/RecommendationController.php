@@ -2,7 +2,7 @@
 
 
 require_once "AppController.php";
-require_once __DIR__ ."/../models/GameRec.php";
+require_once __DIR__ . "/../models/Recommendation.php";
 class RecommendationController extends AppController {
 
     const MAX_FILE_SIZE = 1024*1024;
@@ -10,6 +10,7 @@ class RecommendationController extends AppController {
     const UPLOAD_DIRECTORY = "/../public/uploads/";
     private $messages = [];
 
+    private $recommendationRepository;
     public function addRecommendation() {
 
         if($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"])) {
@@ -18,9 +19,12 @@ class RecommendationController extends AppController {
               dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES["file"]["name"]
             );
 
-            $game = new GameRec($_POST["name"], $_POST["desc"], $_FILES["file"]["name"]);
+            $recommendation = new Recommendation($_POST["name"], $_POST["desc"], $_FILES["file"]["name"]);
 
-            //TODO: why dashboard???
+
+
+
+
             return $this->render("dashboard", ["messages" => $this->messages, "game"=>$game]);
         }
 

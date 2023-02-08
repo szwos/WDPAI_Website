@@ -1,6 +1,6 @@
 <?php
 
-class GameRec
+class Recommendation
 {
     private $name;
     private $desc;
