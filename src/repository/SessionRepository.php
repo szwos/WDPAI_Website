@@ -4,6 +4,11 @@ class SessionRepository extends Repository
 {
     public function login($user) {
         //TODO insert user id or email to db
+        $stmt = $this->database->connect()->prepare( '
+            INSERT INTO public.sessions (id, time)
+            VALUES (?, ?)
+        ');
+
     }
 
     public function update($user) {
