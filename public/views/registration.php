@@ -2,16 +2,14 @@
 <head>
     <link rel="stylesheet" type = "text/css" href = "public/css/style.css">
     <script type = "text/javascript" src="./public/js/registrationScript.js" defer></script>
+    <script type = "text/javascript" src="./public/js/headerScript.js"></script>
     <title>register - GameAlike.net</title>
 </head>
 
 
 <body>
-    <header class = "header">
-        <div class =  "page-name-box">
-            <h1>GameAlike.net</h1>
-        </div>
-    </header>
+    <header id="header"></header>
+    <script>insertHeader()</script>
         
 
             <div class = "input-form-container">

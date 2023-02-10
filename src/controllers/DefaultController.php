@@ -20,4 +20,10 @@ class DefaultController extends AppController{
         $this->render("creator");
     }
 
+
+    public function header() {
+        header('Content-Type: text/html');
+        readfile(__DIR__.'/../../public/views/header.html');
+        exit();
+    }
 }

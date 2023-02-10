@@ -3,6 +3,7 @@
 
 require_once "AppController.php";
 require_once __DIR__ . "/../models/Recommendation.php";
+require_once __DIR__ . "/../models/Profile.php";
 require_once __DIR__ . "/../repository/RecommendationRepository.php";
 require_once __DIR__ . "/../repository/UserRepository.php";
 class RecommendationController extends AppController {
@@ -33,13 +34,23 @@ class RecommendationController extends AppController {
             );
 
             $user = $this->userRepository->getUser($_COOKIE['id_user']);
-
             $owner = $user->getId();
-            $recommendation = new Recommendation($_POST["name"], $_POST["desc"], $_FILES["img"]["name"], $owner);
+
+            $recommendation = new Recommendation(
+                $_POST["name"],
+                $_POST["desc"],
+                $_FILES["img"]["name"],
+                $owner);
+            $profile = new Profile(
+                $_POST["story"],
+                $_POST["gameplay"],
+                $_POST["graphics"],
+                $_POST["climate"],
+                $_POST["music"]
+            );
 
 
-            $this->recommendationRepository->addRecommendation($recommendation, $user);
-
+            $this->recommendationRepository->addRecommendation($recommendation, $profile, $user);
             return $this->render("creator", ["messages" =>["recommendation added successfully!"]]);
         }
 
@@ -74,5 +85,26 @@ class RecommendationController extends AppController {
 
         $recommendations = $this->recommendationRepository->getRecommendations();
         $this->render("dashboard", ["recommendations"=>$recommendations]);
+    }
+
+    public function recommendation_show() {
+
+        $recommendation = $this->recommendationRepository->getRecommendation($_POST["recommendation"]);
+        $profile = $this->recommendationRepository->getProfile($_POST["recommendation"]);
+
+        $this->render("recommendation_show", [
+            "recommendation"=>[
+                $recommendation->getName(),
+                $this->userRepository->getUserById($recommendation->getOwnerId())->getName(),
+                $this->userRepository->getUserById($recommendation->getOwnerId())->getSurname(),
+                $recommendation->getImg(),
+                $profile->getStory(),
+                $profile->getGameplay(),
+                $profile->getGraphics(),
+                $profile->getClimate(),
+                $profile->getMusic(),
+                $recommendation->getDesc()
+            ]
+        ]);
     }
 }

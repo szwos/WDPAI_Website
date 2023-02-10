@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type = "text/css" href = "public/css/style.css">
+    <script type = "text/javascript" src="./public/js/headerScript.js"></script>
     <title>Recommendations - GameAlike.net</title>
 </head>
 
 
 <body>
-    <header class = "header">
-        <div class =  "page-name-box">
-            <h1>GameAlike.net</h1>
-        </div>
-    </header>
+<header id="header"></header>
+<script>insertHeader()</script>
 
     <div class = "recommendations-label">Browse recommendations:</div>
     <section class = "recommendations">
@@ -20,7 +18,7 @@
         foreach ($recommendations as $recommendation){
             echo "<div id = ".$recommendation->getOwnerId().">";
                 echo "<img src  = 'public/uploads/".$recommendation->getImg()."'>";
-                    echo "<div>";
+                    echo "<div class = 'recommendations-content-short'>";
                         echo "<h2>".$recommendation->getName()."</h2>";
                         echo "<p>".$recommendation->getDesc()."</p>";
                     echo "</div>";

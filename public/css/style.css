@@ -1,10 +1,4 @@
-.header {
-    display: flex;
-    justify-content: start;
-    border-bottom: 10px solid #00DBEB;
-    padding: 1%;
 
-}
 
 body {
     margin: 0;
@@ -31,6 +25,43 @@ label {
     display: block;
 }
 
+.header {
+    display: flex;
+    justify-content: start;
+    border-bottom: 10px solid #00DBEB;
+    padding: 1%;
+
+}
+
+.content {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.title_recommendation {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid black;
+
+
+}
+
+.title_recommendation>h1 {
+    margin-bottom: 0;
+}
+
+.title_recommendation>p {
+    margin-bottom: 0;
+}
+
+.infos_recommendation {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10vw;
+
+}
+
 .rows {
     display: flex;
 }
@@ -38,6 +69,66 @@ label {
 .column {
     flex: 50%;
 }
+
+.recommendations {
+    height: available;
+    overflow: hidden;
+}
+.recommendations>div {
+    border: 1px solid gray;
+    border-radius: 0 1em 1em 0;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.recommendations-content-short {
+    overflow: clip;
+}
+
+.recommendations-content-short p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 400px;
+}
+
+.section-img {
+    height: 100px;
+    width: 100px;
+
+}
+
+.section-img>input[type="image"] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.rows>lColumn {
+    flex: 20%;
+}
+
+.rColumn>div>h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    flex: 80%;
+}
+
+.rColumn>div>p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0;
+    margin-bottom: 1em;
+    height: 60%;
+}
+
+.rColumn>div {
+    height: 100px;
+}
+
 
 .creation-form {
 
@@ -56,18 +147,11 @@ label {
 
 .creation-form>.rows>.column>textarea {
     width: 85%;
-    height: 200%;
+    height: 80%;
     resize: none;
 }
 
-.recommendations>div {
-    border: 1px solid gray;
-    border-radius: 1em 1em 0 0;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
 
 .page-name-box {
     display: flex;
@@ -77,6 +161,11 @@ label {
     height: fit-content;
     border-radius: 10px;
     background: #0B8ED4;
+
+}
+
+.page-name-box>a>h1 {
+    text-decoration: none;
 }
 
 .about {
@@ -114,22 +203,24 @@ label {
 }
 
 .profile-form-container {
-    width: 80%;
-    height: fit-content;
-    margin: auto;
-    margin-top: 20vh;
+    /*width: 80%;*/
+    /*height: fit-content;*/
+    /*margin: auto;*/
+    /*margin-top: 20vh;*/
 
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
 
-    border-style: solid;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: #11D6A9;
+    /*border-style: solid;*/
+    /*border-radius: 10px;*/
+    /*border-width: 5px;*/
+    /*border-color: #11D6A9;*/
 
 }
+
+
 .profile-form-container>form>h1 {
     font-size: small;
 }
@@ -145,7 +236,7 @@ label {
     border-radius: 5px;
     background-color: #6FFAB0;
 }
-  
+
 .input-text-field {
     padding: 10px;
     margin: 10px 0;
@@ -165,6 +256,20 @@ label {
     outline: none;
 }
 
+.create-recommendation-button {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.create-recommendation-button>form {
+    width: auto;
+}
+
+.create-recommendation-button>form>input {
+    width: fit-content;
+}
 
 @media only screen and (max-device-width: 420px) {
 

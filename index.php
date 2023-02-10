@@ -16,5 +16,7 @@ Router::post("recommendations", "RecommendationController");
 Router::post("dashboard", "RecommendationController");
 Router::post("creator", "DefaultController");
 Router::post("addRecommendation", "RecommendationController");
+Router::get("recommendation_show", "RecommendationController");
+Router::get("header", "DefaultController");
 
 Router::run($path);

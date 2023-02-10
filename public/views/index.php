@@ -45,9 +45,6 @@
                 <input type = "submit" class = "button" value = "Login">
             </form>
 
-            <div class = "button">
-                Quick recomendation
-            </div>
         </div>
 
     </div>
