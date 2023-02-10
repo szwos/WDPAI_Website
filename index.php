@@ -18,5 +18,6 @@ Router::post("creator", "DefaultController");
 Router::post("addRecommendation", "RecommendationController");
 Router::get("recommendation_show", "RecommendationController");
 Router::get("header", "DefaultController");
+Router::post("logout", "SessionController");
 
 Router::run($path);

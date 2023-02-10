@@ -8,11 +8,14 @@
 
 
 <body>
-    <header id="header"></header>
-    <script>insertHeader()</script>
-        
+<header class="header">
+    <div class="page-name-box">
+        <h1>GameAlike.net</h1>
+    </div>
+</header>
 
-            <div class = "input-form-container">
+
+<div class = "input-form-container">
                 <form class = "registration" action="registration" method="POST">
 
                     <label for id="name">Name:</label>

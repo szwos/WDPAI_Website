@@ -2,24 +2,46 @@
 
 class SessionRepository extends Repository
 {
-    public function login($user) {
-        //TODO insert user id or email to db
+    public function login(int $user) {
         $stmt = $this->database->connect()->prepare( '
             INSERT INTO public.sessions (id, time)
-            VALUES (?, ?)
+            VALUES (?, ?);
         ');
 
+        $stmt->execute([
+            $user,
+            date('Y-m-d H:i:s')
+        ]);
     }
 
     public function update($user) {
-        //TODO update time on user by id or email
+        $stmt = $this->database->connect()->prepare('
+        UPDATE public.sessions
+        SET "time" = current_timestamp
+        WHERE id = :id;
+        ');
+
+        $stmt->bindParam("id", $user);
+        $stmt->execute();
     }
 
-    public function isLogged($user) {
-        //TODO: check if matching record is in db
+    public function isLogged($user) : bool {
+        $stmt = $this->database->connect()->prepare('
+            SELECT EXISTS (SELECT 1 FROM public.sessions WHERE id = ?)
+        ');
+
+        $stmt->execute([$user]);
+        $result = $stmt->fetchColumn();
+
+        return $result;
     }
 
     public function logout($user) {
-        //TODO: delete matching record from db
+        $stmt = $this->database->connect()->prepare( '
+            DELETE FROM public.sessions WHERE id = ?;
+        ');
+
+        $stmt->execute([$user]);
+        
     }
 }

@@ -27,7 +27,7 @@ label {
 
 .header {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     border-bottom: 10px solid #00DBEB;
     padding: 1%;
 
@@ -63,8 +63,8 @@ label {
 }
 
 .infos_recommendation>img {
-    width: 50vw;
-    height: 50vw;
+    width: 30vw;
+    height: 30vw;
 
     object-fit: cover;
     display: block;
