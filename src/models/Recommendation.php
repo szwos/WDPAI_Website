@@ -10,10 +10,6 @@ class Recommendation
     private $id;
 
 
-
-
-    //TODO: profile
-
     public function __construct($name, $desc, $img, $owner_id)
     {
         $this->name = $name;

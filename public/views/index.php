@@ -26,10 +26,10 @@
                     online to find similiar games, but
                     they didn’t share the same vibe, 
                     or were similiar only in aspects like 
-                    gameplay, but not music? 
-                    Then this site is for you, i have 
+                    gameplay, but not music?
+                    Then this site is for you, I have
                     arranged tons of different games
-                    depending on different aspect’s like
+                    depending on different aspects like
                     soundtrack, gameplay, mood, story and
                     more to help you find your game alike 
                     the previous one!
